@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<!--Tags básicas do head-->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Cadastro</title>
+		<!--Link dos nossos arquivos CSS e JS padrão-->
+		<link rel="stylesheet" type="text/css" href="css/estilos.css">
+		<script src="js/scripts.js"></script>
+		<!--Link dos arquivos CSS e JS do Bootstrap-->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<script src="js/bootstrap.min.js"></script>
+		<!--Link do JQuery-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	</head>
+	
+	<body>
+		
+		<div class="container">
+			
+			
+			<div class="row">
+				<div class="col-md-4">
+					<h1>LISTA DE LIVROS</h1>
+				</div>
+				<div class="col-md-1">
+					<a href="/novo">
+					<img src="img/add.png" style="height: 40px; padding-top:10px;">
+					</a>
+				</div>
+			</div>
+			
+			
+			<div class="row" style="font-weight: bold">
+				<div class="col-md-1">Código</div>
+				<div class="col-md-1">Título</div>
+				<div class="col-md-1">Preço</div>
+				<div class="col-md-1">Editora</div>
+				<div class="col-md-1">Categoria</div>
+				<div class="col-md-1">Status</div>
+			</div>
+			
+			
+			<div th:each="objeto : ${listaLivros}">
+				<div class="row">
+					<div class="col-md-1" th:text="${objeto.codigo}"></div>
+					<div class="col-md-1" th:text="${objeto.titulo}"></div>
+					<div class="col-md-1" th:text="${objeto.preco}"></div>
+					<div class="col-md-1" th:text="${objeto.editora}"></div>
+					<div class="col-md-1" th:text="${objeto.categoria}"></div>
+					<div class="col-md-1" th:text="${objeto.status}"></div>
+					
+					
+					
+					<div class="col-md-1">
+						<a th:href="@{'/editar/' + ${objeto.codigo}}">editar</a>
+					</div>
+					<div class="col-md-1">
+						<a th:href="@{'/excluir/' + ${objeto.codigo}}">excluir</a>
+					</div>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+	</body>
+
+</html>

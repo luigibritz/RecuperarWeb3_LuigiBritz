@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<!--Tags básicas do head-->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Cadastrar novo livro</title>
+		<!--Link dos nossos arquivos CSS e JS padrão-->
+		<link rel="stylesheet" type="text/css" href="../css/estilos.css">
+		<script src="js/scripts.js"></script>
+		<!--Link dos arquivos CSS e JS do Bootstrap-->
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+		<script src="../js/bootstrap.min.js"></script>
+		<!--Link do JQuery-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	</head>
+	
+	<body>
+		
+		<div class="container">
+			
+			
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Cadastrar novo livro</h1>
+				</div>
+			</div>
+			
+		
+			<form action="#" th:action="@{/salvar}" th:object="${livro}" method="post">
+				
+				
+				
+				<div class="row">
+					<div class="col-md-1">Código</div>
+					<div class="col-md-5"><input type="text" th:field="*{codigo}" readonly="readonly"></div>
+				</div>
+				
+				
+				<div class="row">
+					<div class="col-md-1">Título</div>
+					<div class="col-md-5"><input type="text" th:field="*{titulo}"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-1">Preço</div>
+					<div class="col-md-5"><input type="text" th:field="*{preco}"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-1">Editora</div>
+					<div class="col-md-5"><input type="text" th:field="*{editora}"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-1">Categoria</div>
+					<div class="col-md-5"><input type="text" th:field="*{categoria}"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-1">Status</div>
+					<div class="col-md-5"><input type="text" th:field="*{status}"></div>
+				</div>
+				
+				
+				
+				<div class="row">
+					<div class="col-md-1"><button type="submit">Salvar</button></div>
+				</div>
+			
+			</form>
+			
+		</div>
+		
+	</body>
+
+</html>
